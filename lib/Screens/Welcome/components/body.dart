@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login_signup_page/Screens/Login/login_screen.dart';
 import 'package:flutter_login_signup_page/Screens/Welcome/components/background.dart';
-import 'package:flutter_login_signup_page/components/rounded_button.dart';
 import 'package:flutter_login_signup_page/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -28,21 +27,48 @@ class Body extends StatelessWidget {
               height: size.height * 0.45,
             ),
             SizedBox(height: size.height * 0.05),
-            RoundedButton(
-              text: "LOGIN",
-              press: () {
-                // Navigator.pushNamed(context, '/');
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const LoginScreen()),
-                // );
-              },
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              width: size.width * 0.8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(29),
+                child: ElevatedButton(
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                    // primary: kPrimaryColor,
+                    backgroundColor: kPrimaryColor,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    );
+                  },
+                  child: Text(
+                    "LOGIN",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
             ),
-            RoundedButton(
-              text: "SIGNUP",
-              color: kPrimaryLightColor,
-              textColor: Colors.black,
-              press: () {},
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              width: size.width * 0.8,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(29),
+                child: ElevatedButton(
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                    // primary: kPrimaryColor,
+                    backgroundColor: kPrimaryLightColor,
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    "SIGNUP",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
